@@ -39,5 +39,21 @@ app.post("/api/workouts", (req, res) => {
     });
   });
 
-
+// Add exercise to workout
+  app.put("/api/workouts/:id", (req, res) => {
+    const workoutID = req.params.id;
+    db.Workout.updateOne(
+      { _id: workoutID },
+      { $push: { exercises: req.body } },
+      (error, edited) => {
+        if (error) {
+          console.log(error);
+          res.send(error);
+        } else {
+          console.log(edited);
+          res.send(edited);
+        }
+      }
+    );
+  });
 };
