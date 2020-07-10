@@ -3,7 +3,7 @@ An excercise in adding a MongoDB backend to an already existing front-end using 
 
 ## Links
 
-[Deployed Application:](https://glacial-earth-45720.herokuapp.com/)
+[Deployed Application:](https://gnsmith-offline-budget-tracker.herokuapp.com/)
 
 ## Technologies Used
 
@@ -13,6 +13,8 @@ An excercise in adding a MongoDB backend to an already existing front-end using 
 * Node.js
 * MongoDB
 * Mongoose
+* IndexedDB
+* Heroku Deployment
 
 ## Questions
 
