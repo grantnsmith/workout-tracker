@@ -15,12 +15,13 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+mongoose.connect(process.env.ORMONGO_RS_URL || "mongodb://localhost/workout", {
+  useNewUrlParser: true,
+});
 
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
 app.listen(PORT, () => {
-    console.log(`App running on port ${PORT}!`);
-  });
+  console.log(`App running on port ${PORT}!`);
+});
