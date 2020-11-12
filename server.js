@@ -15,9 +15,22 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.ORMONGO_RS_URL || "mongodb://localhost/workout", {
-  useNewUrlParser: true,
+// NEW MONGOOSE CONNECTION
+
+mongoose.connect(process.env.ORMONGO_URL, {
+  user: process.env.ORMONGO_USER,
+  pass: process.env.ORMONGO_PASS,
 });
+mongoose.connection.on("connected", function () {
+  console.log(
+    "Mongoose successfully connected to Db at" + process.env.ORMONGO_URL
+  );
+});
+
+// OLD MONGOOSE CONNECTION
+// mongoose.connect(process.env.ORMONGO_RS_URL || "mongodb://localhost/workout", {
+//   useNewUrlParser: true,
+// });
 
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
